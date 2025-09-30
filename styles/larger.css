@@ -1,0 +1,21 @@
+@media (min-width: 1200px) {
+    :root {
+            --primary-color: #3B00DC;
+            --secondary-color: #14B1D1;
+            --black-color: #0D0A0B;
+            --light-color: #E1EEF2;
+            --alternative-color: #B418C8;
+            --alternate-black-color: #353535;
+            --outfit-family: 'Outfit', sans-serif;
+            --days-one-family: 'Days One', sans-serif;
+        }
+    aside {
+        background-color: var(--alternate-black-color);
+        color: var(--light-color);
+        font-family: var(--days-one-family);
+        width: 30%;
+        height: 100vh;
+    }
+}    
+
+
