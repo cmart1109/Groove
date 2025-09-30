@@ -22,20 +22,28 @@ header {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        img {
+            display: block;
+        }
+    }
 }
 
 
 
 nav {
     background-color: var(--black-color);
-    width: 60%;
+    width: 40%;
 }
 
 nav ul {
     font-family: var(--days-one-family);
     display: flex;
     list-style: none;
-    font-size: 22px;
+    font-size: 20px;
     padding: 12px;
     justify-content: space-around;
 }
@@ -52,11 +60,10 @@ nav ul li:hover {
 
 main {
     min-height: 100vh;
-    background-color: var(--alternate-black-color);
-    border: 1px solid white;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
 .search-app {  
@@ -79,4 +86,37 @@ main {
         border: none;
         outline: none;
     }
+}
+
+.song {
+    background-color: var(--black-color);
+    margin: 10px;
+    padding: 1rem;
+    color: var(--light-color);
+    font-family: var(--outfit-family);
+    border-radius: 10px;
+    audio {
+        margin: 10px;
+        color: var(--light-color);
+        background-color: var(--black-color);
+        color: var(--light-color);
+        border-radius: 8px;
+    }
+    .song-info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    img {
+        border-radius: 5px;
+        margin-right: 15px;
+    }
+}
+
+.lyrics {
+    background-color: var(--black-color);
+    margin: 20px;
+    color: var(--light-color);
+    font-family: var(--outfit-family);
+    padding: 20px;
 }

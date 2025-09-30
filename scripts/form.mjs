@@ -1,23 +1,12 @@
-document.querySelector('search-form').addEventListener("submit", async function(e) {
-e.preventDefault()    
-const query = document.getElementById("search-input").ariaValueMax.trim();
-if (!query) return;
-localStorage.setItem("searchQuery", query)
-window.location.href = "results.html"
-})
+const form = document.querySelector('.search-form')
 
-function displayResults(songs) {
-    const resultsDiv = document.querySelector(".results");
-    if (songs.length === 0) {
-        resultsDiv.innerHTML = "<p>No results found</p>";
-        return;
-    } 
-    songs.forEach(song => {
-        const songBox = document.createElement("div")
-        songBox.classList.add("song");
-        songBox.innerHTML = `
-        <strong>${song.title}</strong> - ${song.artist.name} <br>
-        <audio controls src="${song.preview}"></audio>`;
-        resultsDiv.appendChild(songBox)
-    });
+function saveSearchURL(params) {
+   const query = params.get("searchQuery");
+   if (query) {
+       localStorage.setItem("searchQuery", query);
+   }
 }
+
+form.addEventListener("submit", async function() {
+    saveSearchURL(new URLSearchParams(new FormData(this)))
+    })
