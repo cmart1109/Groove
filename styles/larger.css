@@ -13,8 +13,9 @@
         background-color: var(--alternate-black-color);
         color: var(--light-color);
         font-family: var(--days-one-family);
-        width: 30%;
+        width: 20%;
         height: 100vh;
+        justify-self: flex-start;
     }
 }    
 
