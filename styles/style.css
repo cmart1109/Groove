@@ -117,6 +117,9 @@ main {
     background-color: var(--black-color);
     margin: 20px;
     color: var(--light-color);
-    font-family: var(--outfit-family);
+    font-family: var(--days-one-family);
     padding: 20px;
+    pre {
+        font-family: var(--outfit-family);
+    }
 }
