@@ -2,17 +2,26 @@ export function getLyrics(songTitle, artistName) {
     fetch(`https://api.lyrics.ovh/v1/${artistName}/${songTitle}`)
         .then(response => response.json())
         .then(data => {
-            // Create or select a lyrics container
             let lyricsDiv = document.querySelector('.lyrics');
             if (!lyricsDiv) {
                 lyricsDiv = document.createElement('div');
                 lyricsDiv.className = 'lyrics';
                 document.body.appendChild(lyricsDiv);
             }
-            // Display lyrics or error message
-            lyricsDiv.innerHTML = data.lyrics
-                ? `<h3>Lyrics for "${songTitle}" by ${artistName}:</h3><pre>${data.lyrics}</pre>`
-                : `<p>Lyrics not found.</p>`;
+            const albumCover = localStorage.getItem('lyricsAlbumCover');
+            if (data.lyrics) {
+                lyricsDiv.innerHTML = `
+                <div class="lyrics-header">
+                    <img src=${albumCover} alt="Album Cover">
+                    <h3>${songTitle}</h3>
+                    <h4>by ${artistName}</h4>
+                </div>
+                <hr>
+                    <pre>${data.lyrics}</pre>
+                `;
+            } else {
+                lyricsDiv.innerHTML = `<p>Lyrics not found.</p>`;
+            }
         })
         .catch(error => {
             let lyricsDiv = document.querySelector('.lyrics');

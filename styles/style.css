@@ -66,6 +66,13 @@ main {
     background-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .search-app {  
     width: 50%;
     background-color: var(--light-color);
@@ -89,23 +96,39 @@ main {
 }
 
 .song {
+    display: flex;
+    flex-direction: row;
     background-color: var(--black-color);
     margin: 10px;
     padding: 1rem;
     color: var(--light-color);
     font-family: var(--outfit-family);
     border-radius: 10px;
+    width: 100%;
     audio {
         margin: 10px;
         color: var(--light-color);
         background-color: var(--black-color);
         color: var(--light-color);
         border-radius: 8px;
+        grid-column: 1/3;
+        grid-row: 4;
+        width: 100%;
     }
     .song-info {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .5fr .5fr .5fr 1fr;
+        h4 {
+            grid-column: 1/3;
+            margin-bottom: 10px;
+        }
+        h5 {
+            grid-column: 1/3;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
     }
     img {
         border-radius: 5px;
@@ -117,9 +140,20 @@ main {
     background-color: var(--black-color);
     margin: 20px;
     color: var(--light-color);
-    font-family: var(--days-one-family);
     padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     pre {
         font-family: var(--outfit-family);
+        margin: 10px;
     }
-}
+    .lyrics-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    font-family: var(--days-one-family);
+
+    }
