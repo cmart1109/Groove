@@ -32,7 +32,13 @@ header {
     }
 }
 
-
+footer {
+    background-color: var(--black-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 10px;
+    font-family: var(--outfit-family);
+}
 nav {
     background-color: var(--black-color);
     width: 40%;
