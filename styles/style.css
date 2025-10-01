@@ -67,7 +67,7 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 85%;
+    width: 100%;
     background-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
