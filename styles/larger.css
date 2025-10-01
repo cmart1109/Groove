@@ -12,7 +12,6 @@
     aside {
         background-color: var(--alternate-black-color);
         color: var(--light-color);
-        font-family: var(--days-one-family);
         width: 15%;
         height: 100vh;
         justify-self: flex-start;
@@ -21,6 +20,7 @@
             text-align: center;
             margin: 10px;
             font-size: 24px;
+            font-family: var(--days-one-family);
         }
     }
 }    
