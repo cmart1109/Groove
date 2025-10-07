@@ -14,4 +14,6 @@ function seachSongs() {
     }
 }
 
+
 seachSongs();
+export { seachSongs };
