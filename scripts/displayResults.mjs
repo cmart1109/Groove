@@ -14,26 +14,38 @@ export function displayResults(songs) {
         const songBox = document.createElement("div")
         songBox.classList.add("song");
         songBox.innerHTML = `
-        <img src="${song.album.cover_medium}" alt="${song.title} cover">
+        <img src="${song.album.cover_small}" alt="${song.title} cover" class="result-cover">
         <div class="song-info">
         <h4>
         <strong>${song.title}</strong>
         </h4>
-        <h5>
+        <a href="artist.html" class="artist-link">
         ${song.artist.name}
-        </h5>
+        </a>
+        <div class="song-buttons">
         <button class="get-lyrics-btn">Get Lyrics</button>
         <button onclick="window.open('${song.link}', '_blank')">Listen on Deezer</button>
         <button class="favourite-btn">
         <img    src="/images/icons/${isFavourite ? "fav2":"fav1"}.png" 
-                alt="Add to Favourites" 
-                width="20" 
-                height="20">
+        alt="Add to Favourites" 
+        width="20" 
+        height="20">
         </button>
-        <audio controls src="${song.preview}"></audio>
+        </div>
         </div>
         `;
         resultsDiv.appendChild(songBox)
+
+
+        //Artist Button Controller
+        const artistLink = songBox.querySelector(".artist-link")
+        artistLink.addEventListener("click", function (e) {
+            e.preventDefault()            
+            localStorage.setItem("artistIdFromData", song.artist.id)
+            window.location.href="/artist.html"
+        })
+
+        //Lyrics Button Listener
         const lyricsBtn = songBox.querySelector(".get-lyrics-btn");
         lyricsBtn.addEventListener("click", function() {
             localStorage.setItem("lyricsSongTitle", song.title);
@@ -41,6 +53,8 @@ export function displayResults(songs) {
             localStorage.setItem("lyricsAlbumCover", song.album.cover_medium);
             window.location.href = "lyrics.html";
         });
+
+        //Favourite Button Listener
         const favBtn = songBox.querySelector(".favourite-btn");
         const favImg = favBtn.querySelector("img");
         favBtn.addEventListener("click", () => {
