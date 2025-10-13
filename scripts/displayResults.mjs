@@ -26,7 +26,7 @@ export function displayResults(songs) {
         <button class="get-lyrics-btn">Get Lyrics</button>
         <button onclick="window.open('${song.link}', '_blank')">Listen on Deezer</button>
         <button class="favourite-btn">
-        <img    src="/images/icons/${isFavourite ? "fav2":"fav1"}.png" 
+        <img    src="images/icons/${isFavourite ? "fav2":"fav1"}.png" 
         alt="Add to Favourites" 
         width="20" 
         height="20">
@@ -63,11 +63,11 @@ export function displayResults(songs) {
 
             if (currentlyFav) {
                 deleteFavourite(song);
-                favImg.src = "/images/icons/fav1.png";
+                favImg.src = "images/icons/fav1.png";
                 console.log("Removed from favourites");
             } else {
                 addFavourite(song);
-                favImg.src = "/images/icons/fav2.png";
+                favImg.src = "images/icons/fav2.png";
                 console.log("Added to favourites");
             }
         })
