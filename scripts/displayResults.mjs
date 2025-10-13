@@ -42,7 +42,7 @@ export function displayResults(songs) {
         artistLink.addEventListener("click", function (e) {
             e.preventDefault()            
             localStorage.setItem("artistIdFromData", song.artist.id)
-            window.location.href="/artist.html"
+            window.location.href="artist.html"
         })
 
         //Lyrics Button Listener
