@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/larger.css">
     <title>Groove</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +14,17 @@
     <header>
     </header>   
     <main>
-        <div class="main-box">
-            <div class="lyrics">    
+        <div class="main-album">
+            <div class="album-container">    
+            </div>
+            <div class="results">
             </div>
         </div>
     </main>
     <footer>
     </footer>
-    <script src="./scripts/lyricsController.mjs" type="module"></script>
-    <script src="./scripts/main.js" type="module"></script>
+    <script type="module" src="./scripts/displayAlbumResults.mjs"> </script>
+    <script type="module" src="./scripts/albums/albumController.mjs"></script>
+    <script type="module" src="./scripts/main.js" type="module"></script>
 </body>
 </html>

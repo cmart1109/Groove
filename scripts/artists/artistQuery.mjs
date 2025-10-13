@@ -31,19 +31,33 @@ function getArtistAlbums(artistId) {
 }
 
 function handleAlbumsResponse(albumsData) {
-  const albumsContainer = document.querySelector(".albums");
+  const artistContainer = document.querySelector(".artist-container");
   const albumCount = document.querySelector("#album-count");
   albumCount.textContent = albumsData.data.length;
 
-  const albumsHTML = albumsData.data.map(album => `
-    <div class="album">
+  const albumsWrapper = document.createElement("div");
+  albumsWrapper.classList.add("albums");
+  albumsWrapper.innerHTML = `<h1>Albums</h1>`;
+
+  albumsData.data.forEach(album => {
+    const albumDiv = document.createElement("div");
+    albumDiv.classList.add("album");
+    albumDiv.innerHTML = `
       <img src="${album.cover_medium}" alt="${album.title}">
       <p>${album.title}</p>
-    </div>
-  `).join("");
+    `;
 
-  albumsContainer.innerHTML = `<h2>Albums</h2>${albumsHTML}`;
+    albumDiv.addEventListener("click", () => {
+      localStorage.setItem("albumIdFromData", album.id);
+      window.location.href = "album.html";
+    });
+
+    albumsWrapper.appendChild(albumDiv);
+  });
+
+  artistContainer.appendChild(albumsWrapper);
 }
+
 
 
 function getTopSongs(artistId) {
