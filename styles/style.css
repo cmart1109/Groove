@@ -124,6 +124,12 @@ main {
         height: 50px;
     }
     .song-info {
+        .song-name {
+            display: flex;
+            h4 {margin-right: 10px; }
+        }
+        display: flex;
+        justify-content: space-between;
         width: 100%;
         display: flex;
         h4 {
@@ -136,6 +142,33 @@ main {
             color: var(--secondary-color);
         }
     }
+    .song-buttons {
+        display: flex;
+        justify-content: space-around;
+        button {
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            width: 40px;
+            border-radius: 15px;
+            border: none;
+            background-color: var(--black-color);
+            outline: none;
+            transition: all ease-in-out 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--alternate-black-color);
+            cursor: pointer;
+        }
+    }
+    
     img {
         border-radius: 5px;
         margin-right: 15px;

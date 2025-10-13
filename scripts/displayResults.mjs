@@ -16,15 +16,21 @@ export function displayResults(songs) {
         songBox.innerHTML = `
         <img src="${song.album.cover_small}" alt="${song.title} cover" class="result-cover">
         <div class="song-info">
+        <div class="song-name">
         <h4>
         <strong>${song.title}</strong>
         </h4>
         <a href="artist.html" class="artist-link">
         ${song.artist.name}
         </a>
+        </div>
         <div class="song-buttons">
-        <button class="get-lyrics-btn">Get Lyrics</button>
-        <button onclick="window.open('${song.link}', '_blank')">Listen on Deezer</button>
+        <button class="get-lyrics-btn">
+        <img src="images/icons/lyric.png" width="20" height="20" alt="lyrics button"></img>
+        </button>
+        <button onclick="window.open('${song.link}', '_blank')">
+        <img src="images/icons/deezer.png" width="20" height="20" alt="lyrics button"></img>
+        </button>
         <button class="favourite-btn">
         <img    src="images/icons/${isFavourite ? "fav2":"fav1"}.png" 
         alt="Add to Favourites" 
