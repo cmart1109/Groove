@@ -19,7 +19,7 @@ export function displayResults(songs) {
         <h4>
         <strong>${song.title}</strong>
         </h4>
-        <a href="artist.html" class="artist-link">
+        <a href="/artist.html" class="artist-link">
         ${song.artist.name}
         </a>
         <div class="song-buttons">
