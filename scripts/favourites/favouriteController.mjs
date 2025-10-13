@@ -49,7 +49,7 @@ function displayFavourites() {
         albumCover.src = song.album.cover_small;
         albumCover.alt = `${song.title} cover`;
         removeBtn.innerHTML = `
-        <img src="/images/icons/borrar.png" alt="Remove from Favourites" width="15" height="15">`
+        <img src="images/icons/borrar.png" alt="Remove from Favourites" width="15" height="15">`
         removeBtn.addEventListener("click", function() {
             deleteFavourite(song);
             displayFavourites();
