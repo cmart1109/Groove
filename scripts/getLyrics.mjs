@@ -1,4 +1,4 @@
-export function getLyrics(songTitle, artistName) {
+export function getLyrics(songTitle, artistName, songAudio) {
     fetch(`https://api.lyrics.ovh/v1/${artistName}/${songTitle}`)
         .then(response => response.json())
         .then(data => {
@@ -15,6 +15,7 @@ export function getLyrics(songTitle, artistName) {
                     <img src=${albumCover} alt="Album Cover">
                     <h3>${songTitle}</h3>
                     <h4>by ${artistName}</h4>
+                    <audio controls src="${songAudio}"></audio>
                 </div>
                 <hr>
                     <pre>${data.lyrics}</pre>

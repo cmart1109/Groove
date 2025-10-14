@@ -241,11 +241,22 @@
         align-items: flex-start;
         justify-content: space-between;
     }
-    
+
     #results-array {
     width: 60%;
     margin: 25px auto;
-}
+    }
+    .lyrics {
+    background-color: var(--black-color);
+    width: 80&;
+    margin: 20px auto;
+    pre {
+        font-family: var(--outfit-family);
+        font-size: 18px;
+    }
+    font-family: var(--days-one-family);
+
+    }
 }    
 
 

@@ -57,6 +57,7 @@ export function displayResults(songs) {
             localStorage.setItem("lyricsSongTitle", song.title);
             localStorage.setItem("lyricsArtistName", song.artist.name);
             localStorage.setItem("lyricsAlbumCover", song.album.cover_medium);
+            localStorage.setItem("lyricsAudio", song.preview)
             window.location.href = "lyrics.html";
         });
 
