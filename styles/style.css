@@ -24,6 +24,7 @@ header {
     justify-content: space-between;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     .logo {
+        padding-left: 15px;
         display: flex;
         align-items: center;
         gap: 2px;
@@ -33,16 +34,43 @@ header {
     }
 }
 
-footer {
+footer {    
     background-color: var(--black-color);
     color: var(--light-color);
     text-align: center;
     padding: 10px;
     font-family: var(--outfit-family);
 }
+
+.footer {
+  padding: 20px 10px;
+  font-size: 14px;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.deezer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.deezer-logo img {
+    width: auto;
+    height: 50px;
+}
+
+
 nav {
     background-color: var(--black-color);
     width: 40%;
+    font-size: 10px;
 }
 
 nav ul {
@@ -54,12 +82,13 @@ nav ul {
     justify-content: space-around;
 }
 
-nav ul li {
+nav ul li a {
     color: var(--light-color);
     transition: all ease-in-out 0.3s;
+    text-decoration: none;
 }
 
-nav ul li:hover {
+nav ul li a:hover {
     color: var(--secondary-color);
     cursor: pointer;
 }
@@ -71,15 +100,15 @@ main {
 .main-box {
     min-height: 100vh;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
-    background-image: var(--background);
+    background-color: var(--alternate-black-color);
+    back
 }
 
 .results {
-    display: flex;
+    display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -87,7 +116,8 @@ main {
 
 .search-app {  
     width: 50%;
-    background-color: var(--light-color);
+    background-color: transparent;
+    border: 1px solid var(--light-color);
     border-radius: 10px;
     justify-self: flex-end;
     form{
@@ -95,13 +125,18 @@ main {
     }
     input {
         padding: 10px;
+        color: var(--light-color);
         width: 80%;
         background-color: transparent;
         border: none;
         outline: none;
     }
+    input::placeholder {
+        color: var(--light-color);
+    }
     button {
         background-color: transparent;
+        color: var(--light-color);
         width: 20%;
         border: none;
         outline: none;
@@ -220,3 +255,97 @@ main {
         border-radius: 15px;
     }
 }
+
+.main-search {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url("../images/hero/search-back.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-container {
+    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.home-box {
+    font-family: var(--outfit-family);
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+
+.home-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.home-box:hover::after {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.home-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
+
+.home-box span, .home-box p {
+  position: relative;
+  z-index: 2;
+}
+
+.hero {
+    flex-direction: column;
+    font-family: var(--days-one-family);
+    color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/hero/home-hero.webp");
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    button {
+        background-color: var(--primary-color);
+        border: none;
+        outline: none;
+        margin: 15px;
+        padding: 10px;
+        font-size: 18px;
+        color: var(--light-color);
+        font-family: var(--outfit-family);
+        transition: all ease-in-out 0.3s;
+        border-radius: 15px;
+    }
+    button:hover {
+        background-color: var(--light-color);
+        color: var(--black-color);
+        cursor: pointer;
+    }
+}
+
