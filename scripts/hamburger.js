@@ -7,10 +7,10 @@ const hamburger = document.getElementById('hamburger');
     navMenu.classList.toggle('active');
 
     if (isActive) {
-      icon.src = '../images/icons/x.png';
+      icon.src = 'images/icons/x.png';
       icon.alt = 'close menu';
     } else {
-      icon.src = '../images/icons/menu.png';
+      icon.src = 'images/icons/menu.png';
       icon.alt = 'open menu';
     }
   });
