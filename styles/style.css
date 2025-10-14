@@ -75,6 +75,7 @@ nav ul li a:hover {
 
 main {
     display: flex;
+    flex-direction: column;
 }
 
 .main-box {
@@ -476,5 +477,15 @@ nav {
     }
 }
  
+
+.page-header {
+        color: var(--light-color);
+        font-family: var(--days-one-family);
+        background-color: var(--black-color);
+        padding: 10px;
+        text-align: center;
+        font-size: 22px;
+        justify-self: flex-start;
+    }
 
 
