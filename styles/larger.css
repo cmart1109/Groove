@@ -257,6 +257,18 @@
     font-family: var(--days-one-family);
 
     }
+
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        .streamed-container {
+            grid-row: 1/3;
+        }
+    }
+    .home-box {
+        height: auto;
+    }
 }    
 
 

@@ -21,18 +21,14 @@
                 <button><a href="search.html">Get Started</a></button>
             </section>
             <section class="home-container">
-              <a href="releases.html">
-                <section class="home-box" style="background-image:url('images/home/new-releases.webp');">
-                  <h5>Listen New releases</h5>
-                </section>
-              </a>
-                <section class="home-box" style="background-image:url('images/home/most-streamed.webp');">
-                  <h5>Most Streamed</h5>
-                </section>
-                <section class="home-box" style="background-image:url('images/home/favourites.webp');">
+                <div class="streamed-container">
+                  <h4 class="page-header">Look what are the most searched Songs!</h4>
+                  <div class="results"></div>
+                </div>
+                <section class="home-box" id="home-section-1" style="background-image:url('images/home/favourites.webp');">
                   <h5>Your Personal Favourites!</h5>
                 </section>
-                <section class="home-box" style="background-image:url('images/home/dev-selection.webp');">
+                <section class="home-box" id="home-section-2" style="background-image:url('images/home/dev-selection.webp');">
                   <h5>Developer's Personal Selection</h5>
                 </section>
             </section>
@@ -41,6 +37,7 @@
     <footer>
 
     </footer>
+    <script src="scripts/streamed/streamedController.mjs" type="module"></script>
     <script src="./scripts/main.js" type="module"></script>
 </body>
 </html>
