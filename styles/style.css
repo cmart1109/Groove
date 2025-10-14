@@ -66,28 +66,6 @@ footer {
     height: 50px;
 }
 
-
-nav {
-    background-color: var(--black-color);
-    width: 40%;
-    font-size: 10px;
-}
-
-nav ul {
-    font-family: var(--days-one-family);
-    display: flex;
-    list-style: none;
-    font-size: 20px;
-    padding: 12px;
-    justify-content: space-around;
-}
-
-nav ul li a {
-    color: var(--light-color);
-    transition: all ease-in-out 0.3s;
-    text-decoration: none;
-}
-
 nav ul li a:hover {
     color: var(--secondary-color);
     cursor: pointer;
@@ -104,7 +82,6 @@ main {
     justify-content: center;
     width: 100%;
     background-color: var(--alternate-black-color);
-    back
 }
 
 .results {
@@ -112,8 +89,13 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 2px;
+    
 }
 
+#results-array {
+    margin: 10px;
+}
 .search-app {  
     width: 50%;
     background-color: transparent;
@@ -148,7 +130,7 @@ main {
     flex-direction: row;
     align-items: center;
     background-color: var(--black-color);
-    margin: 10px;
+    margin: 5px 20px;
     padding: 5px;
     color: var(--light-color);
     font-family: var(--outfit-family);
@@ -164,25 +146,26 @@ main {
         width: 100%;
         .song-name {
             display: flex;
-            align-items: center;
-            h4 {margin-right: 10px; }
+            text-align: left;
+            flex-direction: column;
+            h4 {
+                margin-right: 10px; 
+            }
+            h4, a {
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+            }
         }
         justify-content: space-between;
-        h4 {
-            grid-column: 1/3;
-            margin-bottom: 10px;
-        }
         a {
-            grid-column: 1/3;
-            margin-bottom: 10px;
             color: var(--secondary-color);
+            text-decoration: none;
         }
     }
     .song-buttons {
         display: flex;
         justify-content: space-around;
         button {
-            margin: 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -197,11 +180,7 @@ main {
             background-color: var(--black-color);
             outline: none;
             transition: all ease-in-out 0.3s;
-        }
-        
-        button:hover {
-            background-color: var(--alternate-black-color);
-            cursor: pointer;
+            
         }
     }
     
@@ -253,6 +232,9 @@ main {
         margin: 10px;
         padding: 2rem;
         border-radius: 15px;
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -356,4 +338,136 @@ main {
         cursor: pointer;
     }
 }
+
+.hamburger {
+    display: flex;
+    background-color: var(--black-color);
+    border: none;
+    outline: none;
+    transition: background-color ease-in-out 0.3s; 
+    border-radius: 15px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+
+
+
+nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background-color: var(--alternate-black-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 12px 0 0 12px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.35s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        list-style: none;
+    }
+
+    nav ul li {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        text-decoration: none;
+        font-family: var(--days-one-family);
+        color: var(--light-color);
+    }
+
+    nav.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    display: flex;
+}
+
+.hamburger img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active img {
+  transform: rotate(90deg);
+  padding: 5px;
+}
+
+.artist-container {
+        display: flex;
+        flex-direction: column;
+        background-image: var(--background);
+        width: 100%;
+        font-family: var(--outfit-family);
+        color: var(--light-color);
+        .artist-main-info {
+            background-color: var(--alternate-black-color);
+            text-align: center;
+            h1 {
+                font-family: var(--days-one-family);
+                background-color: var(--black-color);
+                padding: 10px;
+                text-align: center;
+                font-size: 22px;
+            }
+            img {margin: 15px;
+                width: 70%;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                border-radius: 15px;
+
+            }
+    }
+    .albums {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        h1 {
+            font-family: var(--days-one-family);
+            background-color: var(--black-color);
+            padding: 10px;
+            grid-row: 1;
+            grid-column: 1/3;
+            text-align: center;
+            font-size: 22px;
+        }
+    }
+   .album {
+    background-color: var(--black-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    }
+    .album img {
+        width: 100%;
+        transition: transform 0.4s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .album p {
+        padding: 1rem;
+        color: var(--white-color);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+}
+ 
+
 

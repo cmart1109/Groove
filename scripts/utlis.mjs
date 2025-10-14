@@ -16,4 +16,8 @@ export async function loadMainTemplates() {
   const footerTemplate = await loadTemplate("partials/footer.html");
   const footerElement = document.querySelector("footer");
   renderWithTemplate(footerTemplate,footerElement);
+
+  import("./hamburger.js")
+    .then(() => console.log("Hamburger menu started"))
+    .catch(err => console.error("Error loading hamburger script: ", err))
 }
