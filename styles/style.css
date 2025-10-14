@@ -331,10 +331,14 @@ main {
         font-family: var(--outfit-family);
         transition: all ease-in-out 0.3s;
         border-radius: 15px;
+        a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
     }
     button:hover {
         background-color: var(--light-color);
-        color: var(--black-color);
+        a {color: var(--black-color);}
         cursor: pointer;
     }
 }
