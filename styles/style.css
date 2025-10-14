@@ -293,6 +293,13 @@ main {
     transition: all 0.4s ease;
     cursor: pointer;
     box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    h5 {
+        background-color: var(--black-color);
+        width: 100%;
+        filter: opacity(80%);
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
 }
 
 
@@ -327,6 +334,7 @@ main {
     align-items: center;
     justify-content: center;
     background-image: url("../images/hero/home-hero.webp");
+    background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
     background-repeat: no-repeat;
