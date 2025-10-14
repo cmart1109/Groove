@@ -266,8 +266,8 @@
             grid-row: 1/3;
         }
     }
-    .home-box {
-        height: auto;
+    .home-container a {
+        height: 100%;
     }
 }    
 
