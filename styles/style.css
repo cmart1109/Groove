@@ -309,6 +309,10 @@ main {
 }
 
 .hero {
+    h1 {
+        margin: 10px;
+        text-align: center;
+    }
     flex-direction: column;
     font-family: var(--days-one-family);
     color: var(--light-color);
