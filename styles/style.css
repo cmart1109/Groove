@@ -8,6 +8,8 @@
     --outfit-family: 'Outfit', sans-serif;
     --days-one-family: 'Days One', sans-serif;
     --background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --black-background: linear-gradient(130deg, var(--primary-color), var(--black-color));
+    --inverse-black-background: linear-gradient(130deg, var(--black-color), var(--primary-color));
 }
 
 * {
@@ -81,7 +83,7 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background-color: var(--alternate-black-color);
+    background-image: var(--black-background);
 }
 
 .results {
@@ -215,12 +217,6 @@ main {
     font-family: var(--days-one-family);
 
     }
-
-.artist-container {
-    display: flex;
-    background-image: var(--background);
-    flex-direction: row;
-}
 
 
 .main-album {
@@ -420,12 +416,11 @@ nav {
 .artist-container {
         display: flex;
         flex-direction: column;
-        background-image: var(--background);
+        background-image: var(--inverse-black-background);
         width: 100%;
         font-family: var(--outfit-family);
         color: var(--light-color);
         .artist-main-info {
-            background-color: var(--alternate-black-color);
             text-align: center;
             h1 {
                 font-family: var(--days-one-family);
