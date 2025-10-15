@@ -15,14 +15,20 @@
     </header>
     <main>
         <div class="main-box">
-
             <div class="results" id="results-array">
-                
+                <div class="search-app-in-results">
+                <form action="./results.html" class="search-form" method="GET">
+                        <input type="text" name="searchQuery" placeholder="Search for a song, artist, or lyrics...">
+                        <button type="submit"><img src="images/icons/search.png" alt="Search Icon" width="20"></button>
+                    </form>
+                </div>
+            </div>
             </div>
         </div>
     </main>
     <footer>
     </footer>
+    <script src="./scripts/form.mjs"></script>
     <script type="module" src="./scripts/resultsController.mjs"></script>
     <script src="./scripts/main.js" type="module"></script>
 </body>

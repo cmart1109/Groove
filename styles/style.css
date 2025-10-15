@@ -253,11 +253,10 @@ main {
 
 .home-container {
     width: 100%;
-  display: flex;
-  flex-direction: column;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
 }
 
 .home-box {
@@ -489,4 +488,29 @@ nav {
         justify-self: flex-start;
     }
 
+.search-app-in-results {
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    input {
+        background-color: transparent;
+        width: 95%;
+        color: var(--light-color);
+        border: none;
+        padding: 10px;
+        outline: none;
+        height: 100%;
+    }
+    input::placeholder {
+        color: var(--light-color);
+    }
+    button {
+        width: 4%;
+        background-color: transparent;
+        padding: 10px;
+        border: none;
+        outline: none;
+        height: 100%;
+    }
+}
 

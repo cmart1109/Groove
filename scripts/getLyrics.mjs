@@ -8,21 +8,20 @@ export function getLyrics(songTitle, artistName, songAudio) {
                 lyricsDiv.className = 'lyrics';
                 document.body.appendChild(lyricsDiv);
             }
+
             const albumCover = localStorage.getItem('lyricsAlbumCover');
-            if (data.lyrics) {
-                lyricsDiv.innerHTML = `
+            const lyricsText = data.lyrics ? data.lyrics : "No lyrics found.";
+
+            lyricsDiv.innerHTML = `
                 <div class="lyrics-header">
-                    <img src=${albumCover} alt="Album Cover">
+                    <img src="${albumCover}" alt="Album Cover">
                     <h3>${songTitle}</h3>
                     <h4>by ${artistName}</h4>
                     <audio controls src="${songAudio}"></audio>
                 </div>
                 <hr>
-                    <pre>${data.lyrics}</pre>
-                `;
-            } else {
-                lyricsDiv.innerHTML = `<p>Lyrics not found.</p>`;
-            }
+                <pre>${lyricsText}</pre>
+            `;
         })
         .catch(error => {
             let lyricsDiv = document.querySelector('.lyrics');
@@ -31,7 +30,19 @@ export function getLyrics(songTitle, artistName, songAudio) {
                 lyricsDiv.className = 'lyrics';
                 document.body.appendChild(lyricsDiv);
             }
-            lyricsDiv.innerHTML = `<p>Error fetching lyrics.</p>`;
+
+            const albumCover = localStorage.getItem('lyricsAlbumCover');
+
+            lyricsDiv.innerHTML = `
+                <div class="lyrics-header">
+                    <img src="${albumCover}" alt="Album Cover">
+                    <h3>${songTitle}</h3>
+                    <h4>by ${artistName}</h4>
+                    <audio controls src="${songAudio}"></audio>
+                </div>
+                <hr>
+                <pre>Error fetching lyrics.</pre>
+            `;
             console.error(error);
         });
 }
