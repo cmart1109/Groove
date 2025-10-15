@@ -155,13 +155,13 @@
     }
     .lyrics {
     background-color: var(--black-color);
-    width: 80&;
+    width: 80%;
     margin: 20px auto;
+    font-family: var(--days-one-family);
     pre {
         font-family: var(--outfit-family);
         font-size: 18px;
     }
-    font-family: var(--days-one-family);
 
     }
 
