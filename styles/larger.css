@@ -63,7 +63,7 @@
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 0.5fr 7fr;
         gap: 8px;
-        background-image: var(--background);
+        background-image: var(--inverse-black-background);
         width: 100%;
         font-family: var(--outfit-family);
         color: var(--light-color);
@@ -73,9 +73,8 @@
         }
         .artist-main-info {
             grid-column: 1;
-            grid-row: 1/3;
+            grid-row: 1;
             width: 100%;
-            background-color: var(--alternate-black-color);
             text-align: center;
             h1 {
                 font-family: var(--days-one-family);

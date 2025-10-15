@@ -42,7 +42,7 @@ export function displayAlbumResults(songs) {
 
         resultsDiv.appendChild(songBox);
 
-        // Artist link controller
+        
         const artistLink = songBox.querySelector(".artist-link");
         artistLink.addEventListener("click", function (e) {
             e.preventDefault();
@@ -50,17 +50,36 @@ export function displayAlbumResults(songs) {
             window.location.href = "artist.html";
         });
 
-        // Lyrics button listener
+    
         const lyricsBtn = songBox.querySelector(".get-lyrics-btn");
         lyricsBtn.addEventListener("click", function () {
-            localStorage.setItem("lyricsSongTitle", song.title);
-            localStorage.setItem("lyricsArtistName", song.artist.name);
-            // Si querés seguir guardando la imagen del álbum aunque no se muestre:
-            localStorage.setItem("lyricsAlbumCover", song.album?.cover_medium || "");
-            window.location.href = "lyrics.html";
+            const trackId = song.id;
+            const callbackName = `deezerCallback_${trackId}`;
+
+            window[callbackName] = function (data) {
+                if (data && data.preview) {
+                    localStorage.setItem("lyricsSongTitle", data.title);
+                    localStorage.setItem("lyricsArtistName", data.artist.name);
+                    localStorage.setItem("lyricsAlbumCover", data.album.cover_medium);
+                    localStorage.setItem("lyricsAudio", data.preview);
+                } else {
+                    localStorage.setItem("lyricsSongTitle", song.title);
+                    localStorage.setItem("lyricsArtistName", song.artist.name);
+                    localStorage.setItem("lyricsAlbumCover", song.album?.cover_medium || "");
+                    localStorage.setItem("lyricsAudio", "");
+                }
+
+                delete window[callbackName];
+                document.body.removeChild(script);
+                window.location.href = "lyrics.html";
+            };
+
+            const script = document.createElement("script");
+            script.src = `https://api.deezer.com/track/${trackId}?output=jsonp&callback=${callbackName}`;
+            document.body.appendChild(script);
         });
 
-        // Favourite button listener
+        
         const favBtn = songBox.querySelector(".favourite-btn");
         const favImg = favBtn.querySelector("img");
         favBtn.addEventListener("click", () => {
@@ -72,9 +91,25 @@ export function displayAlbumResults(songs) {
                 favImg.src = "images/icons/fav1.png";
                 console.log("Removed from favourites");
             } else {
-                addFavourite(song);
-                favImg.src = "images/icons/fav2.png";
-                console.log("Added to favourites");
+                const trackId = song.id;
+                const callbackName = `deezerFavCallback_${trackId}`;
+
+                window[callbackName] = function (data) {
+                    if (data && data.id) {
+                        addFavourite(data);
+                        favImg.src = "images/icons/fav2.png";
+                        console.log("Added to favourites:", data.title);
+                    } else {
+                        console.warn("No se pudo obtener info completa de la canción.");
+                    }
+
+                    delete window[callbackName];
+                    document.body.removeChild(script);
+                };
+
+                const script = document.createElement("script");
+                script.src = `https://api.deezer.com/track/${trackId}?output=jsonp&callback=${callbackName}`;
+                document.body.appendChild(script);
             }
         });
     });
